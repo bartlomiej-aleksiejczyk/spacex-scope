@@ -1,6 +1,6 @@
 import { MissionsContainer } from "./components/MissionsContainer";
 import { ApolloProvider } from "@apollo/client";
-import { apolloClient } from "./graphql/apolloClient";
+import { apolloClient } from "./graphql/apollo/apolloClient";
 
 export const App = () => {
 	return (
