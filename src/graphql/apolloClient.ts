@@ -1,7 +1,8 @@
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
+import {API_LINK} from "./graphqlConsts";
 
 const link = new HttpLink({
-	uri: "https://spacex-production.up.railway.app/",
+	uri: API_LINK,
 });
 
 export const apolloClient = new ApolloClient({
