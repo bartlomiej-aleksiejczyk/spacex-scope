@@ -1,7 +1,7 @@
-import {ApolloClient, HttpLink, InMemoryCache} from "@apollo/client";
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 
 const link = new HttpLink({
-	uri: "https://spacex-production.up.railway.app/"
+	uri: "https://spacex-production.up.railway.app/",
 });
 
 export const apolloClient = new ApolloClient({
