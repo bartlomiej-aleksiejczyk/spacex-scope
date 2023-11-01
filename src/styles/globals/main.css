@@ -10,4 +10,9 @@ body {
   color: #333;
 }
 
+div {
+  border: solid 1px red;
+  padding: 1rem;
+}
+
 /*# sourceMappingURL=main.css.map */

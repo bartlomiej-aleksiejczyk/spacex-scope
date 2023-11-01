@@ -11,3 +11,8 @@ body {
 	font: 100% $font-stack;
 	color: $primary-color;
 }
+
+div {
+	border: solid 1px red;
+	padding: 1rem;
+}
