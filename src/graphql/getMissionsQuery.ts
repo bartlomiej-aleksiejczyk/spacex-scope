@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import {gql} from "./generatedTypes";
 
 export const GET_MISSIONS = gql`
 	query GetLaunches($limit: Int) {
