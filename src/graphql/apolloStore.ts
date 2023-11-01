@@ -1,3 +1,3 @@
 import {makeVar} from "@apollo/client";
 
-export const likedMissionsVar = makeVar()
+export const likedMissionsVar = makeVar();
