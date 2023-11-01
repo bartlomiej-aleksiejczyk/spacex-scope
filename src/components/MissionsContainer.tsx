@@ -4,18 +4,19 @@ import {useState} from "react";
 
 export const MissionsContainer = () => {
     const [missionLimit, setMissionLimit] = useState<number>(10)
-    const {loading, error, data} = useQuery(GET_MISSIONS,
-    {variables: {
-        limit: 10
-    }
-})
+    const {loading, error, data} = useQuery(GET_MISSIONS, {
+        variables: {limit: missionLimit}
+    })
     return (
         <div>
 
-            {data.launches.map(mission => (
-                <span>
-                    {mission.mission_name}
-                </span>
+            {data?.launches.map(mission => (
+                <div>
+
+                    <span>
+                        {mission.mission_name}
+                    </span>
+                </div>
             ))}
         </div>
     )

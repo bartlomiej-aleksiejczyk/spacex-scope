@@ -11,4 +11,4 @@ query GetLaunches($limit: Int) {
     }
   }
 }
-`
+`;
