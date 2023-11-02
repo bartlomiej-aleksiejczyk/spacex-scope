@@ -6,11 +6,11 @@ export const useLoadMoreControl = () => {
 	const [limit, setLimit] = useState<number>(ITEMS_PER_PAGE);
 
 	const nextPage = () => {
-		const newLimit = limit + ITEMS_PER_PAGE
-		const newOffset = (offset + ITEMS_PER_PAGE) % 100
+		const newLimit = limit + ITEMS_PER_PAGE;
+		const newOffset = (offset + ITEMS_PER_PAGE) % 100;
 		setLimit(newLimit);
 		setOffset(newOffset);
-		return {newLimit, newOffset}
+		return { newLimit, newOffset };
 	};
 
 	const resetPage = () => {

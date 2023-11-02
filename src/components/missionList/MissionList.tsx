@@ -12,7 +12,7 @@ import { createPortal } from "react-dom";
 import { MissionDetailsModal } from "../missionDetailsModal/MissionDetailsModal";
 import { useLoadMoreControl } from "./useLoadMoreControl";
 import { ITEMS_PER_PAGE } from "./missionListConsts";
-import {getDataFromLocalstorage} from "../../utils/getDataFromLocalstorage";
+import { getDataFromLocalstorage } from "../../utils/getDataFromLocalstorage";
 
 export const MissionList = () => {
 	const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
@@ -30,7 +30,7 @@ export const MissionList = () => {
 	};
 
 	const loadMorePages = () => {
-		const  {newLimit, newOffset} = nextPage();
+		const { newLimit, newOffset } = nextPage();
 		fetchMore({ variables: { offset: newOffset, limit: newLimit } });
 	};
 
