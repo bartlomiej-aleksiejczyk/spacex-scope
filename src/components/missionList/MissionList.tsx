@@ -27,9 +27,10 @@ export const MissionList = () => {
 
     const getDataFromLocalstorage = () => {
         const resultArray = []
-        for (const key in likedMissions) {
+        const currentPageIds = Object.keys(likedMissions).slice(0, currentLimit );
+        currentPageIds.forEach(key => {
             resultArray.push(JSON.parse(likedMissions[key]));
-        }
+        })
         return {
             launches: resultArray
         };
