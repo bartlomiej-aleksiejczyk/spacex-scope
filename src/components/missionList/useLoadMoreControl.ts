@@ -5,11 +5,12 @@ export const useLoadMoreControl = () => {
 	const [offset, setOffset] = useState<number>(0);
 	const [limit, setLimit] = useState<number>(ITEMS_PER_PAGE);
 
-	useEffect(() => {}, [offset, limit]);
-
 	const nextPage = () => {
-		setLimit((offset + ITEMS_PER_PAGE) % 100);
-		setOffset(limit + ITEMS_PER_PAGE);
+		const newLimit = limit + ITEMS_PER_PAGE
+		const newOffset = (offset + ITEMS_PER_PAGE) % 100
+		setLimit(newLimit);
+		setOffset(newOffset);
+		return {newLimit, newOffset}
 	};
 
 	const resetPage = () => {

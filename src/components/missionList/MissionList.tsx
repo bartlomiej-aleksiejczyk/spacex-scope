@@ -40,9 +40,13 @@ export const MissionList = () => {
 	};
 
 	const loadMorePages = () => {
-		nextPage();
+		console.log(offset)
+		console.log(limit)
+		const  {newLimit, newOffset} = nextPage();
+		console.log(newOffset)
+		console.log(newLimit)
 		fetchMore({
-			variables: { offset: offset, limit: limit },
+			variables: { offset: newOffset, limit: newLimit },
 		});
 	};
 
