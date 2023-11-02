@@ -11,13 +11,14 @@ import {
 import { createPortal } from "react-dom";
 import { MissionDetailsModal } from "../missionDetailsModal/MissionDetailsModal";
 import { useLoadMoreControl } from "./useLoadMoreControl";
-import { ITEMS_PER_PAGE } from "./missionListConst";
+import { ITEMS_PER_PAGE } from "./missionListConsts";
+import {getDataFromLocalstorage} from "../../utils/getDataFromLocalstorage";
 
 export const MissionList = () => {
 	const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
 	const likedMissions = useReactiveVar(likedMissionsVar);
 	const selectedMission = useReactiveVar(selectedMissionId);
-	const { nextPage, resetPage, offset, limit } = useLoadMoreControl();
+	const { nextPage, resetPage, limit } = useLoadMoreControl();
 
 	const { loading, error, data, fetchMore } = useQuery(GET_MISSIONS, {
 		variables: { offset: 0, limit: ITEMS_PER_PAGE },
@@ -28,29 +29,12 @@ export const MissionList = () => {
 		setIsLikedModeToggled(!isLikedModeToggled);
 	};
 
-	const getDataFromLocalstorage = () => {
-		const resultArray = [];
-		const currentPageIds = Object.keys(likedMissions).slice(0, limit);
-		currentPageIds.forEach((key) => {
-			resultArray.push(JSON.parse(likedMissions[key]));
-		});
-		return {
-			launches: resultArray,
-		};
-	};
-
 	const loadMorePages = () => {
-		console.log(offset)
-		console.log(limit)
 		const  {newLimit, newOffset} = nextPage();
-		console.log(newOffset)
-		console.log(newLimit)
-		fetchMore({
-			variables: { offset: newOffset, limit: newLimit },
-		});
+		fetchMore({ variables: { offset: newOffset, limit: newLimit } });
 	};
 
-	const chosenDate = isLikedModeToggled ? getDataFromLocalstorage() : data;
+	const chosenDate = isLikedModeToggled ? getDataFromLocalstorage(likedMissions, limit) : data;
 
 	return (
 		<div>
