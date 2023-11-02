@@ -21,7 +21,7 @@ export const MissionDetailsModal = ({
 	});
 	const [isLiked, setIsLiked] = useState<boolean>(!!localStorage.getItem(missionId));
 
-	async function pushMissionToStorage() {
+	const pushMissionToStorage = () => {
 		const resultObject = {
 			id: missionId,
 			mission_id: missionId,
@@ -32,14 +32,14 @@ export const MissionDetailsModal = ({
 		};
 		localStorage.setItem(missionId, JSON.stringify(resultObject));
 
-		const oldLikedMissions = likedMissionsVar();
+		const oldMissions = likedMissionsVar();
 
-		const ss = {
-			...oldLikedMissions,
+		const newMissions = {
+			...oldMissions,
 			[missionId]: JSON.stringify(resultObject),
 		};
 
-		likedMissionsVar(ss);
+		likedMissionsVar(newMissions);
 		setIsLiked(true);
 	}
 
