@@ -1,27 +1,27 @@
 import { isEmpty } from "lodash";
-import { Launch } from "../../../graphql/generatedTypes/graphql";
-import { randomSpaceImage } from "../../../utils/randomSpaceImage";
+import { Launch } from "../../graphql/generatedTypes/graphql";
+import { randomSpaceImage } from "../../utils/randomSpaceImage";
 import {
 	likedMissionsVar,
 	selectedMissionId,
 	selectedMissionImage,
 	selectedMissionName,
-} from "../../../graphql/apollo/apolloStore";
+} from "../../graphql/apollo/apolloStore";
 import { useReactiveVar } from "@apollo/client";
 
 export const MissionItem = ({ mission }: Launch) => {
 	const likedList = useReactiveVar(likedMissionsVar);
+
+	const isLiked = mission.id in likedList;
+	const imageLink = isEmpty(mission.links.flickr_images[0])
+		? randomSpaceImage()
+		: mission.links.flickr_images[0];
 
 	const selectMission = () => {
 		selectedMissionId(mission.id);
 		selectedMissionName(mission.mission_name);
 		selectedMissionImage(imageLink);
 	};
-
-	const isLiked = mission.id in likedList;
-	const imageLink = isEmpty(mission.links.flickr_images[0])
-		? randomSpaceImage()
-		: mission.links.flickr_images[0];
 
 	return (
 		<div>
