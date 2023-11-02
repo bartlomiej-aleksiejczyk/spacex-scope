@@ -61,7 +61,6 @@ export const MissionList = () => {
 
 	const chosenDate = isLikedModeToggled ? getDataFromLocalstorage() : data;
 
-	console.log();
 	return (
 		<div>
 			<button onClick={switchDisplayMissions}>switch missions</button>

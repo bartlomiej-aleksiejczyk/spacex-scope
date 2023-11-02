@@ -22,7 +22,6 @@ export const MissionDetailsModal = ({
 	const [isLiked, setIsLiked] = useState<boolean>(!!localStorage.getItem(missionId));
 
 	async function pushMissionToStorage() {
-		console.log(likedMissionsVar());
 		const resultObject = {
 			id: missionId,
 			mission_id: missionId,
@@ -39,10 +38,8 @@ export const MissionDetailsModal = ({
 			...oldLikedMissions,
 			[missionId]: JSON.stringify(resultObject),
 		};
-		console.log(ss);
 
 		likedMissionsVar(ss);
-		console.log(likedMissionsVar());
 		setIsLiked(true);
 	}
 
@@ -50,7 +47,6 @@ export const MissionDetailsModal = ({
 		localStorage.removeItem(missionId);
 		setIsLiked(false);
 		const partial = omit(likedMissionsVar(), [missionId]);
-		console.log(partial);
 		likedMissionsVar(partial);
 	};
 
