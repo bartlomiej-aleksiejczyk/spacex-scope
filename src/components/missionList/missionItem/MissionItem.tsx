@@ -19,7 +19,7 @@ export const MissionItem = ({ mission }: Launch) => {
 	return (
 		<>
 		<div>
-			<img src={imageLink} alt={mission.mission_name} />
+			{/*<img src={imageLink} alt={mission.mission_name} />*/}
 			<div>{mission.mission_name}</div>
 			<div>{isLiked ? "Liked" : "Not Liked"}</div>
 			<button onClick={selectMission}>
