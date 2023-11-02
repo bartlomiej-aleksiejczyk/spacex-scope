@@ -10,21 +10,17 @@ import {
 } from "../../graphql/apollo/apolloStore";
 import { createPortal } from "react-dom";
 import { MissionDetailsModal } from "../missionDetailsModal/MissionDetailsModal";
-import {useLoadMoreControl} from "./useLoadMoreControl";
-import {ITEMS_PER_PAGE} from "./missionListConst";
-
+import { useLoadMoreControl } from "./useLoadMoreControl";
+import { ITEMS_PER_PAGE } from "./missionListConst";
 
 export const MissionList = () => {
 	const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
 	const likedMissions = useReactiveVar(likedMissionsVar);
 	const selectedMission = useReactiveVar(selectedMissionId);
-	const {nextPage, resetPage, offset, limit} = useLoadMoreControl()
+	const { nextPage, resetPage, offset, limit } = useLoadMoreControl();
 
 	const { loading, error, data, fetchMore } = useQuery(GET_MISSIONS, {
-		variables: {
-			offset: 0,
-			limit: ITEMS_PER_PAGE,
-		},
+		variables: { offset: 0, limit: ITEMS_PER_PAGE },
 	});
 
 	const switchDisplayMissions = () => {
@@ -46,10 +42,7 @@ export const MissionList = () => {
 	const loadMorePages = () => {
 		nextPage();
 		fetchMore({
-			variables: {
-				offset: offset,
-				limit: limit,
-			},
+			variables: { offset: offset, limit: limit },
 		});
 	};
 

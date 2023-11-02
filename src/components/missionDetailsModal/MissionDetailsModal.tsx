@@ -41,7 +41,7 @@ export const MissionDetailsModal = ({
 
 		likedMissionsVar(newMissions);
 		setIsLiked(true);
-	}
+	};
 
 	const removeMissionFromStorage = () => {
 		localStorage.removeItem(missionId);
