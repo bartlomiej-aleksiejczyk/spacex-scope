@@ -1,5 +1,5 @@
 import "./MissionDetailsModal.scss"
-import {likedMissionsVar, selectedMission} from "../../graphql/apollo/apolloStore";
+import {likedMissionsVar, selectedMissionId} from "../../graphql/apollo/apolloStore";
 import {useQuery} from "@apollo/client";
 import {GET_SINGLE_MISSION} from "../../graphql/queries/getSingleMissionQuery";
 import {useState} from "react";
@@ -66,7 +66,7 @@ export const MissionDetailsModal = ({missionId, missionImage, missionName}: Miss
                     {data?.launch.launch_date_local}
                 </div>
 
-                <button onClick={() => selectedMission("")}>
+                <button onClick={() => selectedMissionId("")}>
                     Close
                 </button>
                 {isLiked ?

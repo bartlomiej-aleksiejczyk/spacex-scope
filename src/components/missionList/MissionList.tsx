@@ -2,7 +2,14 @@ import {useQuery, useReactiveVar} from "@apollo/client";
 import {GET_MISSIONS} from "../../graphql/queries/getMissionsQuery";
 import {useState} from "react";
 import {MissionItem} from "./missionItem/MissionItem";
-import {likedMissionsVar} from "../../graphql/apollo/apolloStore";
+import {
+    likedMissionsVar,
+    selectedMissionId,
+    selectedMissionImage,
+    selectedMissionName
+} from "../../graphql/apollo/apolloStore";
+import {createPortal} from "react-dom";
+import {MissionDetailsModal} from "../missionDetailsModal/MissionDetailsModal";
 
 const ITEMS_PER_NEXT_PAGE = 10;
 
@@ -12,6 +19,7 @@ export const MissionList = () => {
 
     const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
     const likedMissions = useReactiveVar(likedMissionsVar)
+    const selectedMission = useReactiveVar(selectedMissionId)
 
     const {loading, error, data, fetchMore} = useQuery(GET_MISSIONS, {
         variables: {
@@ -51,6 +59,7 @@ export const MissionList = () => {
 
     const chosenDate = isLikedModeToggled ? getDataFromLocalstorage() : data
 
+    console.log()
     return (
         <div>
             <button onClick={switchDisplayMissions}>
@@ -60,6 +69,10 @@ export const MissionList = () => {
             <button onClick={loadMorePages} disabled={currentLimit > chosenDate?.launches.length}>
                 Load More
             </button>
+            {selectedMission !== "" && createPortal(
+                <MissionDetailsModal missionId={selectedMissionId()} missionImage={selectedMissionImage()} missionName={selectedMissionName()}/>,
+                document.body
+            )}
         </div>
     );
 };

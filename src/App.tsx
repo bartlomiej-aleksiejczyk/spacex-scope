@@ -4,10 +4,8 @@ import { apolloClient } from "./graphql/apollo/apolloClient";
 
 export const App = () => {
 	return (
-		<>
 			<ApolloProvider client={apolloClient}>
 				<MissionList />
 			</ApolloProvider>
-		</>
 	);
 };
