@@ -1,9 +1,10 @@
 import "./MissionDetailsModal.scss";
-import { likedMissionsVar, selectedMissionId } from "../../graphql/apollo/apolloStore";
-import { useQuery } from "@apollo/client";
-import { GET_SINGLE_MISSION } from "../../graphql/queries/getSingleMissionQuery";
-import { useState } from "react";
-import { omit } from "lodash";
+import {likedMissionsVar, selectedMissionId} from "../../graphql/apollo/apolloStore";
+import {useQuery} from "@apollo/client";
+import {GET_SINGLE_MISSION} from "../../graphql/queries/getSingleMissionQuery";
+import {useState} from "react";
+import {omit} from "lodash";
+import {formatForMissionList} from "../../utils/formatForMissionList";
 
 interface MissionDetailsModalProps {
 	missionId: string;
@@ -22,30 +23,20 @@ export const MissionDetailsModal = ({
 	const [isLiked, setIsLiked] = useState<boolean>(!!localStorage.getItem(missionId));
 
 	const pushMissionToStorage = () => {
-		const resultObject = {
-			id: missionId,
-			mission_id: missionId,
-			mission_name: [missionName],
-			links: {
-				flickr_images: [missionImage],
-			},
-		};
+		const resultObject = formatForMissionList(missionId, missionName, missionImage);
 		localStorage.setItem(missionId, JSON.stringify(resultObject));
 
-		const oldMissions = likedMissionsVar();
-
-		const newMissions = {
-			...oldMissions,
+		likedMissionsVar({
+			...(likedMissionsVar()),
 			[missionId]: JSON.stringify(resultObject),
-		};
-
-		likedMissionsVar(newMissions);
+		});
 		setIsLiked(true);
 	};
 
 	const removeMissionFromStorage = () => {
 		localStorage.removeItem(missionId);
 		setIsLiked(false);
+
 		const partial = omit(likedMissionsVar(), [missionId]);
 		likedMissionsVar(partial);
 	};
