@@ -14,6 +14,7 @@ import { handleImageLoad } from "./onImageLoad";
 import { BASE_ROW_SPAN, MAX_TITLE_LENGTH } from "./missionItemConsts";
 import { truncateString } from "../../utils/truncateString";
 import { omit } from "lodash";
+import * as React from "react";
 
 interface MissionItemProps extends Launch {
 	isLikedModeToggled: boolean;
@@ -39,14 +40,11 @@ export const MissionItem = ({ mission, isLikedModeToggled }: MissionItemProps) =
 		setIsLoaded(true);
 	};
 
-	const handleRemoveButton = (event) => {
+	const handleRemoveButton = (event: React.SyntheticEvent) => {
 		event.stopPropagation();
-		if (window.confirm(`Do you want to remove mission "${mission.id}" from favorites`)) {
-			localStorage.removeItem(mission.id);
-			const partial = omit(likedMissionsVar(), [mission.id]);
-			likedMissionsVar(partial);
-		}
-
+		localStorage.removeItem(mission.id);
+		const partial = omit(likedMissionsVar(), [mission.id]);
+		likedMissionsVar(partial);
 	}
 
 	const styleImageContainer = {

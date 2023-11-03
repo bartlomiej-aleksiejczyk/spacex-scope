@@ -9,6 +9,7 @@
 	row-gap: 1rem;
 	column-gap: 1rem;
 	margin: 0 auto;
+	padding-top: 6rem;
 	@media (max-width: $extra-large-screen) {
 		grid-template-columns: repeat(3, 1fr);
 		max-width: 80%;
@@ -45,4 +46,13 @@
 	align-items: center;
 	padding: 1rem;
 	background-color: $layout-secondary-color;
+	@media (max-width: $extra-small-screen) {
+		padding: 1rem;
+	}
+	h2{
+		@media (max-width: $extra-small-screen) {
+			font-size: medium;
+			display: none;
+		}
+	}
 }
