@@ -1,4 +1,4 @@
-@import "../../styles/globals/variables.scss";
+@import "../../styles/global/variables.scss";
 
 .mission-list-item {
   grid-row-end: span var(--item-span);
@@ -7,6 +7,9 @@
   background-color: $layout-secondary-color;
   border-radius: 5px;
   transition: 0.2s;
+  -webkit-box-shadow: 11px 11px 10px -13px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 11px 11px 10px -13px rgba(0, 0, 0, 1);
+  box-shadow: 11px 11px 10px -13px rgba(0, 0, 0, 1);
   &:hover{
     opacity: 1.5;
     filter: brightness(110%) contrast(90%);;
