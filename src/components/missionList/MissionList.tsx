@@ -43,8 +43,11 @@ export const MissionList = () => {
 
 	return (
 		<div>
-			<div>
-				<button onClick={switchDisplayMissions}>switch missions</button>
+			<div className="topbar">
+				<h2>{isLikedModeToggled? "Your Favorites List": "All missions browser"}</h2>
+				<button className="button" onClick={switchDisplayMissions}>
+					{isLikedModeToggled? "Show My Favorites": "Show All Missions"}
+				</button>
 			</div>
 			<div className="mission-list">
 				{chosenDate?.launches.map((mission) => (

@@ -62,7 +62,8 @@
 
 .button-round-ghost--remove {
 	z-index: 30;
+	border: 2px solid $default-color;
 	&:hover {
-		background-color: rgba(138, 10, 10, 0.4);
+		background-color: rgba(211, 17, 17, 0.4);
 	}
 }
