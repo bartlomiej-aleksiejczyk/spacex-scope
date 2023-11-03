@@ -16,6 +16,9 @@
 		background-color: $layout-secondary-color;
 		border-color: #0f1729;
 	}
+	&:hover {
+		background-color: $primary-font-color;
+	}
 }
 
 .button--big {
@@ -28,10 +31,13 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	background-color: $primary-color;
+	background-color: $info-color;
 	border-color: $primary-color $layout-secondary-color-lightest $layout-secondary-color-lighter
 		$info-color;
 	color: $primary-font-color;
+	&:hover {
+		background-color: $primary-color;
+	}
 }
 
 .button-secondary {
