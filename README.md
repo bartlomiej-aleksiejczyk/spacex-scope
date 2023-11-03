@@ -6,6 +6,9 @@ This is the project of a website that displays SpaceX missions and stores "liked
 * Add mission to favorites list that is stored between sessions
 * Display all favorite missions
 * Remove missions from favorite list
+* ## How to try:
+* I encourage to check ouf vercel deployment of this app and test all features:
+* https://space-scope.vercel.app/
 ## Prerequisites
 * Installed npm
 ## How to run development version:
