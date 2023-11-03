@@ -7,8 +7,8 @@ export const useLoadMoreControl = () => {
 
 	const nextPage = () => {
 		const newLimit = limit + ITEMS_PER_PAGE;
-		let newOffset = (offset + ITEMS_PER_PAGE)% 100;
-		if (newLimit>=150) newOffset = 0;
+		let newOffset = (offset + ITEMS_PER_PAGE) % 100;
+		if (newLimit >= 150) newOffset = 0;
 		setLimit(newLimit);
 		setOffset(newOffset);
 		return { newLimit, newOffset };

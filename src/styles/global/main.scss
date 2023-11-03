@@ -1,22 +1,22 @@
 @import "variables";
 
 #root {
-  background-color: $layout-main-color;
+	background-color: $layout-main-color;
 }
 
 body {
-  font: 100% $font-stack;
-  color: $primary-font-color;
+	font: 100% $font-stack;
+	color: $primary-font-color;
 }
-h4{
-  font-size: medium;
+h4 {
+	font-size: medium;
 }
 h3 {
-  font-size: large;
+	font-size: large;
 }
 h2 {
-  font-size: x-large;
+	font-size: x-large;
 }
 h1 {
-  font-size: xx-large;
+	font-size: xx-large;
 }

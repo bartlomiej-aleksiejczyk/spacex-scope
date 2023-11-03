@@ -1,67 +1,68 @@
 @import "variables";
 
 .button {
-  padding: 0.5rem;
-  display: inline-block;
-  text-align: center;
-  border-radius: 3px;
-  width: auto;
-  font-family: $font-stack;
-  font-weight: bold;
-  color: $default-color;
-  white-space: nowrap;
-  border-style: outset;
-  border-width: 4px;
-  &:disabled {
-    background-color: $layout-secondary-color;
-    border-color: #0F1729;
-  }
+	padding: 0.5rem;
+	display: inline-block;
+	text-align: center;
+	border-radius: 3px;
+	width: auto;
+	font-family: $font-stack;
+	font-weight: bold;
+	color: $default-color;
+	white-space: nowrap;
+	border-style: outset;
+	border-width: 4px;
+	&:disabled {
+		background-color: $layout-secondary-color;
+		border-color: #0f1729;
+	}
 }
 
 .button--big {
-  padding: 1rem 2rem 1rem 2rem;
-  font-size: large;
+	padding: 1rem 2rem 1rem 2rem;
+	font-size: large;
 }
 
 .button--primary {
-  flex-grow: 1;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: $primary-color;
-  border-color: $primary-color $layout-secondary-color-lightest $layout-secondary-color-lighter $info-color;
-  color: $primary-font-color;
+	flex-grow: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: $primary-color;
+	border-color: $primary-color $layout-secondary-color-lightest $layout-secondary-color-lighter
+		$info-color;
+	color: $primary-font-color;
 }
 
-.button-secondary{
-  background-color: $secondary-color;
-  color: $primary-font-color;
+.button-secondary {
+	background-color: $secondary-color;
+	color: $primary-font-color;
 }
 
-.button-round-ghost{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin: 0.5rem;
-  border: none;
-  width: 2rem;
-  height: 2rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: transparent;
+.button-round-ghost {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	margin: 0.5rem;
+	border: none;
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: transparent;
 }
 
-.button-round-ghost--close{
-  &:hover{
-    background-color: rgba(0, 0, 0, 0.4);
-  }
+.button-round-ghost--close {
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.4);
+	}
 }
 
-.button-round-ghost--remove{
-  z-index: 30;
-  &:hover{
-    background-color: rgba(138, 10, 10, 0.4);
-  }
+.button-round-ghost--remove {
+	z-index: 30;
+	&:hover {
+		background-color: rgba(138, 10, 10, 0.4);
+	}
 }

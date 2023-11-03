@@ -13,9 +13,9 @@ import { MissionDetailsModal } from "../missionDetailsModal/MissionDetailsModal"
 import { useLoadMoreControl } from "./useLoadMoreControl";
 import { ITEMS_PER_PAGE } from "./missionListConsts";
 import { getDataFromLocalstorage } from "../../utils/getDataFromLocalstorage";
-import "./MissionList.scss"
-import "../../styles/global/components.scss"
-import {apolloClient} from "../../graphql/apollo/apolloClient";
+import "./MissionList.scss";
+import "../../styles/global/components.scss";
+import { apolloClient } from "../../graphql/apollo/apolloClient";
 
 export const MissionList = () => {
 	const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
@@ -29,7 +29,7 @@ export const MissionList = () => {
 
 	const switchDisplayMissions = () => {
 		resetPage();
-		apolloClient.resetStore()
+		apolloClient.resetStore();
 		setIsLikedModeToggled(!isLikedModeToggled);
 	};
 
@@ -39,7 +39,7 @@ export const MissionList = () => {
 	};
 
 	const chosenDate = isLikedModeToggled ? getDataFromLocalstorage(likedMissions, limit) : data;
-	const isEverythingLoaded = limit > chosenDate?.launches.length
+	const isEverythingLoaded = limit > chosenDate?.launches.length;
 
 	return (
 		<div>
@@ -48,14 +48,23 @@ export const MissionList = () => {
 			</div>
 			<div className="mission-list">
 				{chosenDate?.launches.map((mission) => (
-					<MissionItem key={mission.id} mission={mission} isLikedModeToggled={isLikedModeToggled} />
+					<MissionItem
+						key={mission.id}
+						mission={mission}
+						isLikedModeToggled={isLikedModeToggled}
+					/>
 				))}
 			</div>
 			<div className="bottom-button-container">
-				{!isEverythingLoaded &&
-					< button className="button button--big" onClick={loadMorePages} disabled={isEverythingLoaded}>
-					Load More
-					</button>}
+				{!isEverythingLoaded && (
+					<button
+						className="button button--big"
+						onClick={loadMorePages}
+						disabled={isEverythingLoaded}
+					>
+						Load More
+					</button>
+				)}
 			</div>
 			{selectedMission !== "" &&
 				createPortal(
