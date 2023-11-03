@@ -1,6 +1,7 @@
 @import "../../styles/global/variables.scss";
 
 .mission-list-item {
+  position: relative;
   grid-row-end: span var(--item-span);
   display: flex;
   flex-direction: column;

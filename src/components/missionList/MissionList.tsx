@@ -48,7 +48,7 @@ export const MissionList = () => {
 			</div>
 			<div className="mission-list">
 				{chosenDate?.launches.map((mission) => (
-					<MissionItem key={mission.id} mission={mission} />
+					<MissionItem key={mission.id} mission={mission} isLikedModeToggled={isLikedModeToggled} />
 				))}
 			</div>
 			<div className="bottom-button-container">
