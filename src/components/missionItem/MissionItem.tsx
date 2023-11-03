@@ -16,7 +16,8 @@ import { truncateString } from "../../utils/truncateString";
 import { omit } from "lodash";
 import * as React from "react";
 
-interface MissionItemProps extends Launch {
+interface MissionItemProps {
+	mission: Launch;
 	isLikedModeToggled: boolean;
 }
 
@@ -26,9 +27,9 @@ export const MissionItem = ({ mission, isLikedModeToggled }: MissionItemProps) =
 	const likedList = useReactiveVar(likedMissionsVar);
 
 	const isLiked = mission.id in likedList;
-	const imageLink = isEmpty(mission.links.flickr_images[0])
-		? randomSpaceImage(mission.id)
-		: mission.links.flickr_images[0];
+	const imageLink = isEmpty(mission.links?.flickr_images)
+		? randomSpaceImage(mission.id as string)
+		: mission.links?.flickr_images?.[0];
 
 	const selectMission = () => {
 		selectedMissionId(mission.id);
@@ -42,8 +43,8 @@ export const MissionItem = ({ mission, isLikedModeToggled }: MissionItemProps) =
 
 	const handleRemoveButton = (event: React.SyntheticEvent) => {
 		event.stopPropagation();
-		localStorage.removeItem(mission.id);
-		const partial = omit(likedMissionsVar(), [mission.id]);
+		localStorage.removeItem(mission.id as string);
+		const partial = omit(likedMissionsVar(), [mission.id as string]);
 		likedMissionsVar(partial);
 	};
 
@@ -74,15 +75,15 @@ export const MissionItem = ({ mission, isLikedModeToggled }: MissionItemProps) =
 			<div className="image-container">
 				<img
 					className="image-container__image"
-					src={imageLink}
-					alt={mission.mission_name}
+					src={imageLink as string}
+					alt={mission.mission_name as string}
 					onLoad={onLoad}
 					loading="lazy"
 					style={styleImage}
 				/>
 			</div>
 			<div className="mission-list-item-bottom">
-				<span>{truncateString(mission.mission_name, MAX_TITLE_LENGTH)}</span>
+				<span>{truncateString(mission.mission_name as string, MAX_TITLE_LENGTH)}</span>
 				{isLiked ? (
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
