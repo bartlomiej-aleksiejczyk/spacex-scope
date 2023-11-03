@@ -13,6 +13,7 @@ import { MissionDetailsModal } from "../missionDetailsModal/MissionDetailsModal"
 import { useLoadMoreControl } from "./useLoadMoreControl";
 import { ITEMS_PER_PAGE } from "./missionListConsts";
 import { getDataFromLocalstorage } from "../../utils/getDataFromLocalstorage";
+import "./MissionList.scss"
 
 export const MissionList = () => {
 	const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
@@ -39,9 +40,11 @@ export const MissionList = () => {
 	return (
 		<div>
 			<button onClick={switchDisplayMissions}>switch missions</button>
-			{chosenDate?.launches.map((mission) => (
-				<MissionItem key={mission.id} mission={mission} />
-			))}
+			<div className="mission-list">
+				{chosenDate?.launches.map((mission) => (
+					<MissionItem key={mission.id} mission={mission} />
+				))}
+			</div>
 			<button onClick={loadMorePages} disabled={limit > chosenDate?.launches.length}>
 				Load More
 			</button>

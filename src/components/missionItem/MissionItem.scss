@@ -1,0 +1,17 @@
+@import "../../styles/globals/variables.scss";
+
+.mission-list-item {
+  grid-row-end: span var(--item-span);
+  &__image {
+    display: block;
+    width: 100%;
+    max-height: 70%;
+    border-radius: 6px 6px 0 0;
+    object-fit: cover;
+  }
+
+}
+
+.image-container {
+  background-color: $default-color;
+}

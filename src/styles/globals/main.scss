@@ -1,18 +1,10 @@
 @import "variables";
 
 #root {
-	max-width: 1280px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
+  background-color: $layout-main-color;
 }
 
 body {
-	font: 100% $font-stack;
-	color: $primary-color;
-}
-
-div {
-	border: solid 1px red;
-	padding: 1rem;
+  font: 100% $font-stack;
+  color: $primary-font-color;
 }
