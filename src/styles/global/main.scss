@@ -1,10 +1,8 @@
 @import "variables";
 
-#root {
-	background-color: $layout-main-color;
-}
-
 body {
+	height: 100%;
+	background-color: $layout-main-color;
 	font: 100% $font-stack;
 	color: $primary-font-color;
 }

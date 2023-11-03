@@ -18,7 +18,7 @@ export const MissionDetailsModal = ({
 	missionImage,
 	missionName,
 }: MissionDetailsModalProps) => {
-	const { loading, error, data } = useQuery(GET_SINGLE_MISSION, {
+	const { loading, data } = useQuery(GET_SINGLE_MISSION, {
 		variables: { launchId: missionId },
 	});
 	const [isLiked, setIsLiked] = useState<boolean>(!!localStorage.getItem(missionId));
@@ -67,9 +67,10 @@ export const MissionDetailsModal = ({
 				</button>
 				<img className="modal-box__image" src={missionImage} alt={missionName} />
 				<div className="modal-box-content">
-					<div className="modal-box-content-info">
+					{loading ? <div className="loading"><div className = "loading__Spinner"/></div> :
+						<div className="modal-box-content-info">
 						<h2>{missionName}</h2>
-						<hr className="modal-box-content-info__separator" />
+						<hr className="modal-box-content-info__separator"/>
 						<strong>Description:</strong>
 						<div className="modal-box-content-info__paragraph">
 							{data?.launch.details ? (
@@ -86,7 +87,7 @@ export const MissionDetailsModal = ({
 								<i>Launch date not found</i>
 							)}
 						</div>
-					</div>
+					</div>}
 					<div className="modal-box-content__button-wrapper">
 						{isLiked ? (
 							<button

@@ -27,7 +27,7 @@ export const MissionItem = ({ mission, isLikedModeToggled }: MissionItemProps) =
 
 	const isLiked = mission.id in likedList;
 	const imageLink = isEmpty(mission.links.flickr_images[0])
-		? randomSpaceImage()
+		? randomSpaceImage(mission.id)
 		: mission.links.flickr_images[0];
 
 	const selectMission = () => {
