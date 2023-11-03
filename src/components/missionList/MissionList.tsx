@@ -15,6 +15,7 @@ import { ITEMS_PER_PAGE } from "./missionListConsts";
 import { getDataFromLocalstorage } from "../../utils/getDataFromLocalstorage";
 import "./MissionList.scss"
 import "../../styles/global/components.scss"
+import {apolloClient} from "../../graphql/apollo/apolloClient";
 
 export const MissionList = () => {
 	const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
@@ -28,6 +29,7 @@ export const MissionList = () => {
 
 	const switchDisplayMissions = () => {
 		resetPage();
+		apolloClient.resetStore()
 		setIsLikedModeToggled(!isLikedModeToggled);
 	};
 
@@ -37,6 +39,7 @@ export const MissionList = () => {
 	};
 
 	const chosenDate = isLikedModeToggled ? getDataFromLocalstorage(likedMissions, limit) : data;
+	const isEverythingLoaded = limit > chosenDate?.launches.length
 
 	return (
 		<div>
@@ -49,9 +52,10 @@ export const MissionList = () => {
 				))}
 			</div>
 			<div className="bottom-button-container">
-				<button className="button button--big" onClick={loadMorePages} disabled={limit > chosenDate?.launches.length}>
+				{!isEverythingLoaded &&
+					< button className="button button--big" onClick={loadMorePages} disabled={isEverythingLoaded}>
 					Load More
-				</button>
+					</button>}
 			</div>
 			{selectedMission !== "" &&
 				createPortal(

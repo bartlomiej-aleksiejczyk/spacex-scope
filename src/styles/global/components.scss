@@ -10,9 +10,20 @@
   font-weight: bold;
   color: $default-color;
   white-space: nowrap;
+  border-style: outset;
+  border-width: 4px;
+  &:disabled {
+    background-color: $layout-secondary-color;
+    border-color: #0F1729;
+  }
 }
 
 .button--big {
   padding: 1rem 2rem 1rem 2rem;
   font-size: large;
+}
+
+.button--primary {
+  background-color: $primary-color;
+  color: $primary-font-color;
 }

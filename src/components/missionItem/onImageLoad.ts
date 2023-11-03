@@ -6,6 +6,5 @@ export const handleImageLoad = (image: HTMLImageElement, setRowSpan: React.Dispa
     const ratio =  image.naturalHeight / image.naturalWidth;
     const mod = ratio % 1.5 < 0.5 ? 0.5 : ratio % 1.5;
     const rowSpan = Math.round(mod * 10 - 4);
-    console.log(rowSpan)
     setRowSpan(rowSpan + BASE_ROW_SPAN)
 }
