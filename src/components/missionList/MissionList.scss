@@ -45,15 +45,37 @@
 	justify-content: space-around;
 	align-items: center;
 	padding: 1rem;
-	background-color: $secondary-color;
+	background-color: $layout-main-color-lightest;
 	backdrop-filter: blur(20px);
+	-webkit-box-shadow: 11px 11px 8px -12px $default-color;
+	-moz-box-shadow: 11px 11px 8px -12px $default-color;
+	box-shadow: 11px 11px 8px -12px $default-color;
 	@media (max-width: $extra-small-screen) {
 		padding: 1rem;
 	}
 	h2 {
-		@media (max-width: $extra-small-screen) {
-			font-size: medium;
-			display: none;
-		}
+
 	}
+}
+
+.topbar__text {
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	font-weight: bold;
+	font-size: 2rem;
+	color: $primary-color;
+	text-shadow: 3px 3px 1px $layout-main-color;
+	transition: all 0.3s ease;
+	@media (max-width: $extra-small-screen) {
+		font-size: medium;
+		display: none;
+	}
+	@media (max-width: $small-screen) {
+		font-size: medium;
+	}
+}
+
+.topbar-dock {
+	padding: 6rem;
+	background-color: $layout-main-color-lightest;
 }

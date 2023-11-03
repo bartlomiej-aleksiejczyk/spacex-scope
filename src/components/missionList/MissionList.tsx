@@ -51,7 +51,7 @@ export const MissionList = () => {
 	return (
 		<div className="globalContainer" style={styleGlobalContainer}>
 			<div className="topbar">
-				<h2>{isLikedModeToggled ? "Your Favorites List" : "All missions browser"}</h2>
+				<h2 className="topbar__text">{isLikedModeToggled ? <strong>YOUR FAVORITES LIST</strong> : <strong>MISSION BROWSER</strong>}</h2>
 				<button className="button" onClick={switchDisplayMissions}>
 					{isLikedModeToggled ? "Show All Missions" : "Show My Favorites"}
 				</button>
