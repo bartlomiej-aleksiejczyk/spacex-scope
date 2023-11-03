@@ -66,18 +66,18 @@ export const MissionList = () => {
                             />
                         ))}
                     </div>
+                    <div className="bottom-button-container">
+                        {!isEverythingLoaded && (
+                            <button
+                                className="button button--big"
+                                onClick={loadMorePages}
+                                disabled={isEverythingLoaded}
+                            >
+                                Load More
+                            </button>
+                        )}
+                    </div>
                 </>}
-            <div className="bottom-button-container">
-                {!isEverythingLoaded && (
-                    <button
-                        className="button button--big"
-                        onClick={loadMorePages}
-                        disabled={isEverythingLoaded}
-                    >
-                        Load More
-                    </button>
-                )}
-            </div>
             {selectedMission !== "" &&
                 createPortal(
                     <MissionDetailsModal
