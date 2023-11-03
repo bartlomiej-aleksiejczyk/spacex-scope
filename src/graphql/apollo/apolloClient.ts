@@ -4,13 +4,14 @@ import { API_LINK } from "../graphqlConsts";
 const link = new HttpLink({
 	uri: API_LINK,
 });
-
 const cache = new InMemoryCache({
 	typePolicies: {
 		Query: {
 			fields: {
 				launches: {
 					keyArgs: false,
+					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// @ts-ignore
 					merge(existing, incoming, { args: { offset = 0 } }) {
 						const merged = existing ? existing.slice(0) : [];
 						for (let i = 0; i < incoming.length; ++i) {

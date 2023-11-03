@@ -34,7 +34,7 @@ export const MissionItem = ({ mission, isLikedModeToggled }: MissionItemProps) =
 	const selectMission = () => {
 		selectedMissionId(mission.id as string);
 		selectedMissionName(mission.mission_name as string);
-		selectedMissionImage(imageLink);
+		selectedMissionImage(imageLink as string);
 	};
 	const onLoad = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
 		handleImageLoad(event.currentTarget, setRowSpan);
