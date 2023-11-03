@@ -16,7 +16,7 @@ import { getDataFromLocalstorage } from "../../utils/getDataFromLocalstorage";
 import "./MissionList.scss";
 import "../../styles/global/components.scss";
 import { apolloClient } from "../../graphql/apollo/apolloClient";
-import {useChangeOverflow} from "./hooks/useChangeOverflow";
+import { useChangeOverflow } from "./hooks/useChangeOverflow";
 
 export const MissionList = () => {
 	const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
@@ -27,7 +27,7 @@ export const MissionList = () => {
 	const { loading, data, fetchMore } = useQuery(GET_MISSIONS, {
 		variables: { offset: 0, limit: ITEMS_PER_PAGE },
 	});
-	useChangeOverflow()
+	useChangeOverflow();
 
 	const switchDisplayMissions = () => {
 		resetPage();
@@ -46,7 +46,13 @@ export const MissionList = () => {
 	return (
 		<div className="globalContainer">
 			<div className="topbar">
-				<h2 className="topbar__text">{isLikedModeToggled ? <strong>MY MISSION COLLECTION</strong> : <strong>COSMIC MISSION BROWSER</strong>}</h2>
+				<h2 className="topbar__text">
+					{isLikedModeToggled ? (
+						<strong>MY MISSION COLLECTION</strong>
+					) : (
+						<strong>COSMIC MISSION BROWSER</strong>
+					)}
+				</h2>
 				<button className="button" onClick={switchDisplayMissions}>
 					{isLikedModeToggled ? "Show All  Missions" : "Show My Favorites"}
 				</button>
@@ -58,7 +64,7 @@ export const MissionList = () => {
 				</div>
 			) : (
 				<>
-					<div className="mission-list" >
+					<div className="mission-list">
 						{chosenDate?.launches.map((mission) => (
 							<MissionItem
 								key={mission.id}

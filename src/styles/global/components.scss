@@ -9,7 +9,7 @@
 	font-family: $font-stack;
 	font-weight: bold;
 	font-size: larger;
-	background-color: $complementary-color;
+	background-color: $action-color;
 	color: $default-color;
 	white-space: nowrap;
 	&:disabled {
@@ -17,9 +17,9 @@
 		border-color: #0f1729;
 	}
 	&:hover {
-		background-color: $complementary-color-lighter;
+		background-color: $action-color-lighter;
 	}
-	border: 0 solid #de5a5a;
+	border: 0;
 	-webkit-box-shadow: 11px 11px 8px -12px rgba(0, 0, 0, 1);
 	-moz-box-shadow: 11px 11px 8px -12px rgba(0, 0, 0, 1);
 	box-shadow: 11px 11px 8px -12px rgba(0, 0, 0, 1);
@@ -30,17 +30,11 @@
 	font-size: x-large;
 }
 
-.button--primary {
+.button--modal {
 	flex-grow: 1;
-	border: 4px outset;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	border-radius: 3px;
-	background-color: $info-color;
-	border-color: $primary-color $layout-secondary-color-lightest $layout-secondary-color-lighter
-		$info-color;
-	color: $primary-font-color;
 	&:hover {
 		background-color: $primary-color;
 	}
