@@ -10,12 +10,13 @@ import {
 } from "../../graphql/apollo/apolloStore";
 import { createPortal } from "react-dom";
 import { MissionDetailsModal } from "../missionDetailsModal/MissionDetailsModal";
-import { useLoadMoreControl } from "./useLoadMoreControl";
+import { useLoadMoreControl } from "./hooks/useLoadMoreControl";
 import { ITEMS_PER_PAGE } from "./missionListConsts";
 import { getDataFromLocalstorage } from "../../utils/getDataFromLocalstorage";
 import "./MissionList.scss";
 import "../../styles/global/components.scss";
 import { apolloClient } from "../../graphql/apollo/apolloClient";
+import {useChangeOverflow} from "./hooks/useChangeOverflow";
 
 export const MissionList = () => {
 	const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
@@ -26,6 +27,7 @@ export const MissionList = () => {
 	const { loading, data, fetchMore } = useQuery(GET_MISSIONS, {
 		variables: { offset: 0, limit: ITEMS_PER_PAGE },
 	});
+	useChangeOverflow()
 
 	const switchDisplayMissions = () => {
 		resetPage();
@@ -40,9 +42,14 @@ export const MissionList = () => {
 
 	const chosenDate = isLikedModeToggled ? getDataFromLocalstorage(likedMissions, limit) : data;
 	const isEverythingLoaded = limit > chosenDate?.launches.length;
+	const styleGlobalContainer = {
+		overflow: likedMissions === "" ? "auto" : "hidden",
+	};
+
+
 
 	return (
-		<div className="globalContainer">
+		<div className="globalContainer" style={styleGlobalContainer}>
 			<div className="topbar">
 				<h2>{isLikedModeToggled ? "Your Favorites List" : "All missions browser"}</h2>
 				<button className="button" onClick={switchDisplayMissions}>
@@ -56,7 +63,7 @@ export const MissionList = () => {
 				</div>
 			) : (
 				<>
-					<div className="mission-list">
+					<div className="mission-list" >
 						{chosenDate?.launches.map((mission) => (
 							<MissionItem
 								key={mission.id}

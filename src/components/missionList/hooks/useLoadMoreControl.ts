@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ITEMS_PER_PAGE } from "./missionListConsts";
+import { ITEMS_PER_PAGE } from "../missionListConsts";
 
 export const useLoadMoreControl = () => {
 	const [offset, setOffset] = useState<number>(0);
