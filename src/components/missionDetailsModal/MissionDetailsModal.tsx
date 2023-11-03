@@ -113,10 +113,7 @@ export const MissionDetailsModal = ({
 								Unlike
 							</button>
 						) : (
-							<button
-								className="button button--modal"
-								onClick={pushMissionToStorage}
-							>
+							<button className="button button--modal" onClick={pushMissionToStorage}>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 24 24"

@@ -17,6 +17,7 @@ import "./MissionList.scss";
 import "../../styles/global/components.scss";
 import { apolloClient } from "../../graphql/apollo/apolloClient";
 import { useChangeOverflow } from "./hooks/useChangeOverflow";
+import { isEmpty } from "lodash";
 
 export const MissionList = () => {
 	const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
@@ -61,6 +62,10 @@ export const MissionList = () => {
 			{loading ? (
 				<div className="loading loading--topspace">
 					<div className="loading__Spinner" />
+				</div>
+			) : isEmpty(chosenDate.launches) && isLikedModeToggled ? (
+				<div className="mission-list__empty">
+					<h3> You don't have any favorites yet! </h3>
 				</div>
 			) : (
 				<>

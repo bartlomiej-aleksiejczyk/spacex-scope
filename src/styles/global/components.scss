@@ -35,9 +35,6 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	&:hover {
-		background-color: $primary-color;
-	}
 }
 
 .button-secondary {
