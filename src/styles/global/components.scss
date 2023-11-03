@@ -4,33 +4,39 @@
 	padding: 0.5rem;
 	display: inline-block;
 	text-align: center;
-	border-radius: 3px;
+	border-radius: 5px;
 	width: auto;
 	font-family: $font-stack;
 	font-weight: bold;
+	font-size: larger;
+	background-color: $complementary-color;
 	color: $default-color;
 	white-space: nowrap;
-	border-style: outset;
-	border-width: 4px;
 	&:disabled {
 		background-color: $layout-secondary-color;
 		border-color: #0f1729;
 	}
 	&:hover {
-		background-color: $primary-font-color;
+		background-color: $complementary-color-lighter;
 	}
+	border: 0 solid #de5a5a;
+	-webkit-box-shadow: 11px 11px 8px -12px rgba(0, 0, 0, 1);
+	-moz-box-shadow: 11px 11px 8px -12px rgba(0, 0, 0, 1);
+	box-shadow: 11px 11px 8px -12px rgba(0, 0, 0, 1);
 }
 
 .button--big {
 	padding: 1rem 2rem 1rem 2rem;
-	font-size: large;
+	font-size: x-large;
 }
 
 .button--primary {
 	flex-grow: 1;
+	border: 4px outset;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	border-radius: 3px;
 	background-color: $info-color;
 	border-color: $primary-color $layout-secondary-color-lightest $layout-secondary-color-lighter
 		$info-color;
@@ -61,6 +67,7 @@
 }
 
 .button-round-ghost--close {
+	position: absolute;
 	&:hover {
 		background-color: rgba(0, 0, 0, 0.4);
 	}
@@ -90,7 +97,7 @@
 	border-top-color: $primary-color;
 	width: 4rem;
 	height: 4rem;
-	animation: spin 3s linear infinite;
+	animation: spin 0.5s linear infinite;
 }
 
 @keyframes spin {

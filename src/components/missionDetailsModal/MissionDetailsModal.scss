@@ -11,7 +11,7 @@
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: $default-color;
 }
 
 .modal-box {
@@ -61,6 +61,7 @@
 	flex-wrap: nowrap;
 	flex-grow: 1;
 }
+
 .modal-box-content__button-wrapper {
 	position: sticky;
 	transition: all 0.3s ease;

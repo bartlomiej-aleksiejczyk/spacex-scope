@@ -13,13 +13,14 @@ $layout-secondary-color-lightest: #3d4f6b;
 $primary-font-color: #c9cacf;
 $secondary-font-color: #525b68;
 
-$default-color: #05080f;
+$default-color: rgba(5, 8, 15, 0.8);
 $info-color: #0ca6e9;
 $primary-color: #3abff8;
 $success-color: #2bd4bd;
 $secondary-color: rgba(130, 141, 248, 0.2);
 $warning-color: #f4c152;
-$accent-color: #f471b5;
+$complementary-color: #f1b51d;
+$complementary-color-lighter: #ffce53;
 $error-color: #fb6f84;
 
 $extra-small-screen: 480px;

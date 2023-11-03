@@ -42,18 +42,13 @@ export const MissionList = () => {
 
 	const chosenDate = isLikedModeToggled ? getDataFromLocalstorage(likedMissions, limit) : data;
 	const isEverythingLoaded = limit > chosenDate?.launches.length;
-	const styleGlobalContainer = {
-		overflow: likedMissions === "" ? "auto" : "hidden",
-	};
-
-
 
 	return (
-		<div className="globalContainer" style={styleGlobalContainer}>
+		<div className="globalContainer">
 			<div className="topbar">
-				<h2 className="topbar__text">{isLikedModeToggled ? <strong>YOUR FAVORITES LIST</strong> : <strong>MISSION BROWSER</strong>}</h2>
+				<h2 className="topbar__text">{isLikedModeToggled ? <strong>MY MISSION COLLECTION</strong> : <strong>COSMIC MISSION BROWSER</strong>}</h2>
 				<button className="button" onClick={switchDisplayMissions}>
-					{isLikedModeToggled ? "Show All Missions" : "Show My Favorites"}
+					{isLikedModeToggled ? "Show All  Missions" : "Show My Favorites"}
 				</button>
 			</div>
 

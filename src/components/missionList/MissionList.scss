@@ -31,6 +31,7 @@
 		max-width: 97%;
 	}
 }
+
 .bottom-button-container {
 	display: flex;
 	justify-content: center;
@@ -53,9 +54,6 @@
 	@media (max-width: $extra-small-screen) {
 		padding: 1rem;
 	}
-	h2 {
-
-	}
 }
 
 .topbar__text {
@@ -67,11 +65,16 @@
 	text-shadow: 3px 3px 1px $layout-main-color;
 	transition: all 0.3s ease;
 	@media (max-width: $extra-small-screen) {
-		font-size: medium;
 		display: none;
 	}
 	@media (max-width: $small-screen) {
+		display: none;
+	}
+	@media (max-width: $medium-screen) {
 		font-size: medium;
+	}
+	@media (max-width: $large-screen) {
+		font-size: larger;
 	}
 }
 
