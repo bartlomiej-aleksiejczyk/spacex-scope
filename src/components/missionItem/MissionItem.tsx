@@ -9,7 +9,7 @@ import {
 } from "../../graphql/apollo/apolloStore";
 import { useReactiveVar } from "@apollo/client";
 import "./MissionItem.scss";
-import { useState } from "react";
+import {CSSProperties, useState} from "react";
 import { handleImageLoad } from "./onImageLoad";
 import { BASE_ROW_SPAN, MAX_TITLE_LENGTH } from "./missionItemConsts";
 import { truncateString } from "../../utils/truncateString";
@@ -26,14 +26,14 @@ export const MissionItem = ({ mission, isLikedModeToggled }: MissionItemProps) =
 	const [rowSpan, setRowSpan] = useState<number>(BASE_ROW_SPAN);
 	const likedList = useReactiveVar(likedMissionsVar);
 
-	const isLiked = mission.id in likedList;
+	const isLiked = (mission.id as string) in likedList;
 	const imageLink = isEmpty(mission.links?.flickr_images)
 		? randomSpaceImage(mission.id as string)
 		: mission.links?.flickr_images?.[0];
 
 	const selectMission = () => {
-		selectedMissionId(mission.id);
-		selectedMissionName(mission.mission_name);
+		selectedMissionId(mission.id as string);
+		selectedMissionName(mission.mission_name as string);
 		selectedMissionImage(imageLink);
 	};
 	const onLoad = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -55,7 +55,7 @@ export const MissionItem = ({ mission, isLikedModeToggled }: MissionItemProps) =
 		opacity: isLoaded ? 1 : 0,
 	};
 	return (
-		<div className="mission-list-item" style={styleImageContainer} onClick={selectMission}>
+		<div className="mission-list-item" style={styleImageContainer as CSSProperties} onClick={selectMission}>
 			{isLikedModeToggled && (
 				<button
 					className="button-round-ghost button-round-ghost--remove"

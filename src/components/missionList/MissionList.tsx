@@ -18,6 +18,7 @@ import "../../styles/global/components.scss";
 import { apolloClient } from "../../graphql/apollo/apolloClient";
 import { useChangeOverflow } from "./hooks/useChangeOverflow";
 import { isEmpty } from "lodash";
+import {Launch} from "../../graphql/generatedTypes/graphql";
 
 export const MissionList = () => {
 	const [isLikedModeToggled, setIsLikedModeToggled] = useState<boolean>(false);
@@ -70,7 +71,7 @@ export const MissionList = () => {
 			) : (
 				<>
 					<div className="mission-list">
-						{chosenDate?.launches.map((mission) => (
+						{chosenDate?.launches.map((mission: Launch) => (
 							<MissionItem
 								key={mission.id}
 								mission={mission}
