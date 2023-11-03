@@ -67,14 +67,14 @@
 		background-color: rgba(211, 17, 17, 0.4);
 	}
 }
-.loading{
+.loading {
 	flex-grow: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.loading--topspace{
+.loading--topspace {
 	padding-top: 20rem;
 }
 
@@ -86,7 +86,6 @@
 	height: 4rem;
 	animation: spin 3s linear infinite;
 }
-
 
 @keyframes spin {
 	0% {

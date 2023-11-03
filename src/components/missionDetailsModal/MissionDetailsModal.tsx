@@ -67,27 +67,32 @@ export const MissionDetailsModal = ({
 				</button>
 				<img className="modal-box__image" src={missionImage} alt={missionName} />
 				<div className="modal-box-content">
-					{loading ? <div className="loading"><div className = "loading__Spinner"/></div> :
+					{loading ? (
+						<div className="loading">
+							<div className="loading__Spinner" />
+						</div>
+					) : (
 						<div className="modal-box-content-info">
-						<h2>{missionName}</h2>
-						<hr className="modal-box-content-info__separator"/>
-						<strong>Description:</strong>
-						<div className="modal-box-content-info__paragraph">
-							{data?.launch.details ? (
-								data.launch.details
-							) : (
-								<i>Description not found</i>
-							)}
+							<h2>{missionName}</h2>
+							<hr className="modal-box-content-info__separator" />
+							<strong>Description:</strong>
+							<div className="modal-box-content-info__paragraph">
+								{data?.launch.details ? (
+									data.launch.details
+								) : (
+									<i>Description not found</i>
+								)}
+							</div>
+							<strong>Launch date:</strong>
+							<div className="modal-box-content-info__paragraph">
+								{data?.launch.launch_date_local ? (
+									data.launch.launch_date_local
+								) : (
+									<i>Launch date not found</i>
+								)}
+							</div>
 						</div>
-						<strong>Launch date:</strong>
-						<div className="modal-box-content-info__paragraph">
-							{data?.launch.launch_date_local ? (
-								data.launch.launch_date_local
-							) : (
-								<i>Launch date not found</i>
-							)}
-						</div>
-					</div>}
+					)}
 					<div className="modal-box-content__button-wrapper">
 						{isLiked ? (
 							<button

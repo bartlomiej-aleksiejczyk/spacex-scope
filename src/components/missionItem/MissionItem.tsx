@@ -45,7 +45,7 @@ export const MissionItem = ({ mission, isLikedModeToggled }: MissionItemProps) =
 		localStorage.removeItem(mission.id);
 		const partial = omit(likedMissionsVar(), [mission.id]);
 		likedMissionsVar(partial);
-	}
+	};
 
 	const styleImageContainer = {
 		"--item-span": rowSpan,
